@@ -1,6 +1,6 @@
 
 require_relative '../../config/environment'
-
+require 'pry'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do # routes, HTTP Verb,URL,Block
-
+    erb :index
   end
 
   get '/articles' do
@@ -18,17 +18,18 @@ class ApplicationController < Sinatra::Base
     erb :index # renders the index view
   end
 
-  get '/articles/new' do #produces a form to create a new article obj
+  get '/new' do #produces a form to create a new article obj
     erb :new
   end
 
   post '/articles' do #creates a new article obj, from form
-     @new_article = Article.new(params)
+      #binding.pry
+     @new_article = Article.new({title: params[:title],content: params[:content]})
      @new_article.save
+     @new_article.delete
 
-     redirect "/articles/#{@new_articles.id}"
+     redirect "/articles/#{@new_article.id}"
   end
-
 
   get '/articles/:id' do #Show route, display one article obj, 
     @article = Article.find_by(id: params[:id])
