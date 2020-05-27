@@ -1,4 +1,4 @@
-## Sinatra ActiveRecord CRUD
+aA## Sinatra ActiveRecord CRUD
 
 1. Implement all four CRUD actions in a Sinatra application.
 2. Understand how each CRUD action corresponds to a controller action and `POST`
@@ -29,7 +29,7 @@ If you've done everything correctly, you should be able to run `rake db:seed` to
 with a few sample articles.  Spend some time in `rake console` and make sure you know how to retrieve
 all of the articles as well as get a single article using its id.  Create at least one article of 
 your own from inside the console.
-
+aA
 ### Read
 
 The Read CRUD action corresponds to two different controller actions: show and
