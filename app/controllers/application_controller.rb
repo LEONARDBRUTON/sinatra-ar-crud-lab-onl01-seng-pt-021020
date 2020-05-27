@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
     erb :index # renders the index view
   end
 
-  get '/new' do #produces a form to create a new article obj
+  get '/articles/new' do #produces a form to create a new article obj
     erb :new
   end
 
@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
       #binding.pry
      @new_article = Article.new({title: params[:title],content: params[:content]})
      @new_article.save
-     @new_article.delete
+    
 
      redirect "/articles/#{@new_article.id}"
   end
